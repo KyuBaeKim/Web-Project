@@ -41,18 +41,18 @@
           <!-- icon -->
           {% block icons %} {% include 'dailyphoto/icons.html' %} {% endblock %}
           <hr />
-          <div class="big_feed_content overflow">{{post.content|linebreaks}}</div>
+          <div class="big_feed_content overflow" style="display:block;">{{post.content|linebreaks}}</div>
           <hr />
           <div class="comment_wrap">
             <div class="comment overflow">
               {% for comment in post.comment_set.all %}
               <div id="comment-{{comment.id}} " class="clearfix">
                 <b>{{comment.author.username}}</b>
-                {{comment.content}} {% if user.id == comment.author.id %}
+                {{comment.content}} 
+                {% if user.id == comment.author.id %}
                 <div style="float: right">
                   <a style="color: black" href="{% url 'dailyphoto:comment_delete' comment.id %}">
-                    <span class="material-icons-outlined">delete</span></a
-                  >
+                    <span class="material-icons-outlined">delete</span></a>
                 </div>
                 {% endif %}
               </div>
