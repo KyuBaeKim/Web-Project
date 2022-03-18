@@ -81,7 +81,7 @@ def comment_create(request, post_id):
       comment.post = post
       comment.save()
       
-      return redirect(reverse('dailyphoto:index')+"#comment-"+str(comment.id))
+      return redirect(reverse('dailyphoto:')+"#comment-"+str(comment.id))
 
     else:
       return render(request, 'dailyphoto/post_list.html')
